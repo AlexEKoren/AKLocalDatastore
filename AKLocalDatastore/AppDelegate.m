@@ -7,6 +7,8 @@
 //
 
 #import "AppDelegate.h"
+#import "AKTableViewController.h"
+#import <Parse/Parse.h>
 
 @interface AppDelegate ()
 
@@ -16,7 +18,38 @@
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-    // Override point for customization after application launch.
+    
+    [Parse enableLocalDatastore];
+    [Parse setApplicationId:@"YOUR APPLICATION ID" clientKey:@"YOUR CLIENT KEY"];
+    [PFAnalytics trackAppOpenedWithLaunchOptions:launchOptions];
+    
+    self.window = [[UIWindow alloc]initWithFrame:[UIScreen mainScreen].bounds];
+    AKTableViewController *viewController = [[AKTableViewController alloc]init];
+    viewController.view.frame = self.window.frame;
+    self.window.rootViewController = viewController;
+    [self.window addSubview:viewController.view];
+    [self.window makeKeyAndVisible];
+    
+    //Check to see if the user has downloaded the data from parse
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    BOOL hasDownloadedRemoteData = [defaults boolForKey:@"hasDownloadedRemoteData"];
+    
+    //if they haven't go retrieve it and pin them to the local datastore
+    if (!hasDownloadedRemoteData) {
+        PFQuery *remoteQuery = [PFQuery queryWithClassName:@"YOUR CLASS NAME"];
+        [remoteQuery findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
+            [PFObject pinAllInBackground:objects block:^(BOOL succeeded, NSError *error) {
+                [defaults setBool:NO forKey:@"hasDownloadedRemoteData"];
+                [defaults synchronize];
+                
+                [viewController reloadData];
+            }];
+        }];
+    } else {
+        //if they have, just tell the view controller to reload
+        [viewController reloadData];
+    }
+    
     return YES;
 }
 
