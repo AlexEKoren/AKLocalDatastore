@@ -24,7 +24,7 @@
 		2FDF9D0F1A8BC4930058D316 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2FDF9D041A8BC4930058D316 /* Security.framework */; };
 		2FDF9D101A8BC4930058D316 /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2FDF9D051A8BC4930058D316 /* StoreKit.framework */; };
 		2FDF9D111A8BC4930058D316 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2FDF9D061A8BC4930058D316 /* SystemConfiguration.framework */; };
-		2FDF9D161A8BC6450058D316 /* PFObject+LocalDatastore.m in Sources */ = {isa = PBXBuildFile; fileRef = 2FDF9D151A8BC6450058D316 /* PFObject+LocalDatastore.m */; };
+		2FDF9D161A8BC6450058D316 /* PFObject+AKLocalDatastore.m in Sources */ = {isa = PBXBuildFile; fileRef = 2FDF9D151A8BC6450058D316 /* PFObject+AKLocalDatastore.m */; };
 		2FDF9D1B1A8BD38A0058D316 /* Bolts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2FDF9D191A8BD38A0058D316 /* Bolts.framework */; };
 		2FDF9D1C1A8BD38A0058D316 /* Parse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2FDF9D1A1A8BD38A0058D316 /* Parse.framework */; };
 /* End PBXBuildFile section */
@@ -64,8 +64,8 @@
 		2FDF9D041A8BC4930058D316 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
 		2FDF9D051A8BC4930058D316 /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
 		2FDF9D061A8BC4930058D316 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
-		2FDF9D141A8BC6450058D316 /* PFObject+LocalDatastore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "PFObject+LocalDatastore.h"; sourceTree = "<group>"; };
-		2FDF9D151A8BC6450058D316 /* PFObject+LocalDatastore.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "PFObject+LocalDatastore.m"; sourceTree = "<group>"; };
+		2FDF9D141A8BC6450058D316 /* PFObject+AKLocalDatastore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "PFObject+AKLocalDatastore.h"; sourceTree = "<group>"; };
+		2FDF9D151A8BC6450058D316 /* PFObject+AKLocalDatastore.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "PFObject+AKLocalDatastore.m"; sourceTree = "<group>"; };
 		2FDF9D191A8BD38A0058D316 /* Bolts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Bolts.framework; sourceTree = "<group>"; };
 		2FDF9D1A1A8BD38A0058D316 /* Parse.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Parse.framework; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -129,8 +129,8 @@
 				2FDF9CF61A8BC3D10058D316 /* AKTableViewController.m */,
 				2FDF9CF81A8BC3E70058D316 /* AKTableViewCell.h */,
 				2FDF9CF91A8BC3E70058D316 /* AKTableViewCell.m */,
-				2FDF9D141A8BC6450058D316 /* PFObject+LocalDatastore.h */,
-				2FDF9D151A8BC6450058D316 /* PFObject+LocalDatastore.m */,
+				2FDF9D141A8BC6450058D316 /* PFObject+AKLocalDatastore.h */,
+				2FDF9D151A8BC6450058D316 /* PFObject+AKLocalDatastore.m */,
 				2FDF9CDC1A8BC3840058D316 /* Images.xcassets */,
 				2FDF9CCF1A8BC3840058D316 /* Supporting Files */,
 			);
@@ -284,7 +284,7 @@
 			files = (
 				2FDF9CF71A8BC3D10058D316 /* AKTableViewController.m in Sources */,
 				2FDF9CD51A8BC3840058D316 /* AppDelegate.m in Sources */,
-				2FDF9D161A8BC6450058D316 /* PFObject+LocalDatastore.m in Sources */,
+				2FDF9D161A8BC6450058D316 /* PFObject+AKLocalDatastore.m in Sources */,
 				2FDF9CD21A8BC3840058D316 /* main.m in Sources */,
 				2FDF9CFA1A8BC3E70058D316 /* AKTableViewCell.m in Sources */,
 			);

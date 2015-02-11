@@ -1,5 +1,5 @@
 //
-//  PFObject+LocalDatastore.h
+//  PFObject+AKLocalDatastore.h
 //  AKLocalDatastore
 //
 //  Created by Alex Koren on 2/11/15.
@@ -14,7 +14,7 @@ typedef enum retrievalType {
     AKFileDataRetrievalTypeRemote
 } AKFileDataRetrievalType;
 
-@interface PFObject (LocalDatastore)
+@interface PFObject (AKLocalDatastore)
 
 @property (nonatomic, strong) NSString *fileColumnName;
 

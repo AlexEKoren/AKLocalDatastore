@@ -1,21 +1,21 @@
 //
-//  PFObject+LocalDatastore.m
+//  PFObject+AKLocalDatastore.m
 //  AKLocalDatastore
 //
 //  Created by Alex Koren on 2/11/15.
 //  Copyright (c) 2015 Alex Koren. All rights reserved.
 //
 
-#import "PFObject+LocalDatastore.h"
+#import "PFObject+AKLocalDatastore.h"
 #import <objc/runtime.h>
 
-@interface PFObject (LocalDatastorePrivate)
+@interface PFObject (AKLocalDatastorePrivate)
 
 @property (nonatomic, strong) NSData *cachedFileData;
 
 @end
 
-@implementation PFObject (LocalDatastore)
+@implementation PFObject (AKLocalDatastore)
 
 - (void)getFileDataWithBlock:(void (^)(NSData *fileData, AKFileDataRetrievalType retrievalType))block {
     //check for cached data
@@ -72,8 +72,11 @@
     NSString *documentsDirectory = paths.firstObject;
     NSString *folder = [NSString stringWithFormat:@"%@/AKLocalDatastore", documentsDirectory];
     //if the folder doesn't exist, we have to create one
-    if (![[NSFileManager defaultManager] fileExistsAtPath:folder])
+    //and make sure this folder isn't backed up to iCloud
+    if (![[NSFileManager defaultManager] fileExistsAtPath:folder]) {
         [[NSFileManager defaultManager] createDirectoryAtPath:folder withIntermediateDirectories:NO attributes:nil error:nil];
+        [self setDoNotBackupFlags];
+    }
     return folder;
 }
 
@@ -93,6 +96,15 @@
 
 - (NSString*)fileColumnName {
     return (NSString*)objc_getAssociatedObject(self, @selector(fileColumnName));
+}
+
+#pragma mark - iCloud Force No Backup of Parse Files
+
+- (void)setDoNotBackupFlags {
+    BOOL excluded = [[NSURL fileURLWithPath:[self savePath]] setResourceValue: [NSNumber numberWithBool: YES] forKey: NSURLIsExcludedFromBackupKey error:nil];
+    if (!excluded) {
+        NSLog(@"Problem with backup flags");
+    }
 }
 
 @end
