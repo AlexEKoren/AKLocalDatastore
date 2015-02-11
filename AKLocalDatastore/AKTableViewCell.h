@@ -7,7 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "PFObject+LocalDatastore.h"
+#import "PFObject+AKLocalDatastore.h"
 
 @interface AKTableViewCell : UITableViewCell
 

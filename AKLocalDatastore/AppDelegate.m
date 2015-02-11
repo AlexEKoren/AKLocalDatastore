@@ -36,7 +36,7 @@
     
     //if they haven't go retrieve it and pin them to the local datastore
     if (!hasDownloadedRemoteData) {
-        PFQuery *remoteQuery = [PFQuery queryWithClassName:@"YOUR CLASS NAME"];
+        PFQuery *remoteQuery = [PFQuery queryWithClassName:@"YOUR CLASS NAME HERE"];
         [remoteQuery findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
             [PFObject pinAllInBackground:objects block:^(BOOL succeeded, NSError *error) {
                 [defaults setBool:NO forKey:@"hasDownloadedRemoteData"];

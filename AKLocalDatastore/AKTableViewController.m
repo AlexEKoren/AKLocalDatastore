@@ -8,7 +8,7 @@
 
 #import "AKTableViewController.h"
 #import "AKTableViewCell.h"
-#import "PFObject+LocalDatastore.h"
+#import "PFObject+AKLocalDatastore.h"
 
 @interface AKTableViewController ()
 
@@ -30,7 +30,7 @@ static NSString * const reuseIdentifier = @"Cell";
 
 - (void)reloadData {
     //loads data from local datastore
-    PFQuery *localQuery = [PFQuery queryWithClassName:@"YOUR CLASS NAME GOES HERE"];
+    PFQuery *localQuery = [PFQuery queryWithClassName:@"YOUR CLASS NAME HERE"];
     [localQuery fromLocalDatastore];
     [localQuery findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
         self.objects = objects;
